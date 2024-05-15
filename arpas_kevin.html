@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body ng-app="filmApp" ng-controller="filmController">
+    
+    <input type="text" id="myText">
+
+    <button onclick="myFunction()">Keresés</button>
+
+    <div ng-repeat="film in filmek">
+        <h1>{{film.Title}}</h1>
+        <img src="{{film.Poster}}" alt="">
+        <p>{{film.Year}}</p>    
+    </div>
+
+    <script>
+        let keresettFilm = "";
+        function myFunction() {
+            keresettFilm = document.getElementById("myText").value;
+        }
+
+        let app = angular.module('filmApp', []);
+        app.controller('filmController', function($scope, $http){
+            
+            $scope.filmek = [];
+
+            const url = `http://www.omdbapi.com/?s=${encodeURI(keresettFilm)}&apiKey=9606ae0f`;
+
+            $http.get(url)
+                .then(function(response){
+                    $scope.filmek = response.data;
+                    console.log($scope.filmek);
+                })
+            })
+        
+    </script>
+</body>
+</html>
