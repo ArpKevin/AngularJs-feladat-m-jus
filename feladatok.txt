@@ -1,0 +1,10 @@
+Hozz létre egy html fájlt, keresztnev_vezeteknev.html néven. 
+Ebbe a fájlba kerüljön a stílus formázás, és a javascript is!!!
+(így csomagolás nélkül be tudod másolni a dolgozat mappába)
+AngularJs segítségével kérd le az adatokat az OMDBAPI oldaláról
+Az adatok lekéréshez használd az alábbi linket:
+const url = `http://www.omdbapi.com/?s=${encodeURI(keresettFilm)}&apiKey=9606ae0f`;
+Az adatok elrendezéséhez CSS GRID-et használj. 
+A csatolt minta szerint jelenjenek meg a keresési eredmények. 
+AngularJs könyvtár linkje:
+https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js
